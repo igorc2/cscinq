@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BooksSeller.WebApi.Models
 {
     public class Book
     {
+        [Key]
+        [Required]
+        [MaxLength(20)]
+        public string Id { get; set; }
+        
         public string Code { get; set; }
         public string Title { get; set; }
         public string ReleaseDate { get; set; }
         public double Price { get; set; }
     }
 
-    public class BookDBContext : DbContext
-    {
-        public DbSet<Book> Books { get; set; }
-    }
 }

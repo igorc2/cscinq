@@ -5,6 +5,10 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using Microsoft.Practices.Unity;
+using BooksSeller.WebApi.Utils;
+using BooksSeller.WebApi.Providers;
+using System.Net.Http.Headers;
 
 namespace BooksSeller.WebApi
 {
@@ -25,6 +29,14 @@ namespace BooksSeller.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                .Add(new MediaTypeHeaderValue("text/html"));
+
+            var container = new UnityContainer();
+            container.RegisterType<IBooksProvider, BooksProvider>(new HierarchicalLifetimeManager());
+            config.DependencyResolver = new UnityResolver(container);
+
         }
     }
 }

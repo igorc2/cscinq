@@ -1,13 +1,19 @@
 ﻿using BooksSeller.WebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace BooksSeller.WebApi.Providers
 {
+
+    
+
     public class BooksProvider : IBooksProvider
     {
+
+
         private readonly BookDBContext _dbContext;
 
         public BooksProvider(BookDBContext dbContext)
@@ -15,43 +21,59 @@ namespace BooksSeller.WebApi.Providers
             _dbContext = dbContext;
         }
 
-        public Book Create()
-        {
-            return new Book();
-        }
+        //public BookDBContext CreateContext()
+        //{
+        //    var von = new BooksProvider(_dbContext)
+        //    von.
+        //}
+
+        //public Book Create()
+        //{
+        //    return new Book();
+        //}
 
         public List<Book> GetBooks()
         {
-            var bb = new Book
-            {
-                Code = "oi",
-                ReleaseDate = "trem",
-                Title = "tt",
-                Price = 12
-            };
-
-            return new List<Book>();
+            return _dbContext.Books.ToList();
         }
 
         public Book GetBook(int id)
         {
-            return new Book();
+            return _dbContext.Books.Find(id);
         }
-
       
         public void SaveBook(Book book)
         {
-        
+            _dbContext.Books.Add(book);
         }
 
         public void SaveBook(int id, Book book)
         {
-
+            _dbContext.Entry(book).State = EntityState.Modified;
         }
 
         public void DeleteBook(int id)
         {
+            _dbContext.Books.Remove(_dbContext.Books.Find(id));
+        }
 
+        private bool disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _dbContext.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
 

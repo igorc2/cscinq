@@ -13,11 +13,10 @@ namespace BooksSeller.WebApi.Controllers
     {
         private readonly IBooksProvider _booksProvider;
 
-        public BooksController(IBooksProvider characterRepository)
+        public BooksController(IBooksProvider booksProvider)
         {
-            _booksProvider = characterRepository;
+            _booksProvider = booksProvider;
         }
-
 
 
         // GET: api/Books

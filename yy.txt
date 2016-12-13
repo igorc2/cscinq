@@ -6,3 +6,7 @@ http://scottdorman.github.io/2016/03/17/integrating-asp.net-core-dependency-inje
 http://stackoverflow.com/questions/29385944/c-sharp-constructor-gives-method-must-have-a-return-type
 http://stackoverflow.com/questions/32459670/resolving-instances-with-asp-net-core-di
 https://www.google.com.br/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=git+push+to+new+repository+github
+
+
+
+http://www.macoratti.net/14/04/mvc_crud.htm
