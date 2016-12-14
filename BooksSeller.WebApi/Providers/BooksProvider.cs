@@ -14,7 +14,7 @@ namespace BooksSeller.WebApi.Providers
     {
 
 
-        private readonly BookDBContext _dbContext;
+        private BookDBContext _dbContext;
 
         public BooksProvider(BookDBContext dbContext)
         {
@@ -45,6 +45,7 @@ namespace BooksSeller.WebApi.Providers
         public void SaveBook(Book book)
         {
             _dbContext.Books.Add(book);
+            _dbContext.SaveChanges();
         }
 
         public void SaveBook(int id, Book book)

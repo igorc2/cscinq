@@ -1,10 +1,11 @@
 ﻿(function () {
     "use strict";
 
-    function booksListController() {
+    function booksListController(booksService) {
         var vm = this;
-        vm.books = [];
-
+        booksService.getAll.query(function(books){
+                vm.books = books;
+            });
     }
 
     angular

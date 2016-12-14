@@ -98,12 +98,12 @@ C:\webproj\BooksSeller\BooksSeller.WebApi\bin\System.Web.Http.Owin.xml
 C:\webproj\BooksSeller\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.dll
 C:\webproj\BooksSeller\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.pdb
 C:\webproj\BooksSeller\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.csprojResolveAssemblyReference.cache
+D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\workspace\cscinq\BooksSeller.WebApi\bin\ApplicationInsights.config
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\csc.exe
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
 D:\workspace\cscinq\BooksSeller.WebApi\bin\roslyn\System.Collections.Immutable.dll
@@ -197,4 +197,3 @@ D:\workspace\cscinq\BooksSeller.WebApi\bin\Microsoft.Owin.Security.MicrosoftAcco
 D:\workspace\cscinq\BooksSeller.WebApi\bin\System.Web.Http.Owin.xml
 D:\workspace\cscinq\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.dll
 D:\workspace\cscinq\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.pdb
-D:\workspace\cscinq\BooksSeller.WebApi\obj\Debug\BooksSeller.WebApi.csprojResolveAssemblyReference.cache

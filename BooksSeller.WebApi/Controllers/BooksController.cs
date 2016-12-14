@@ -11,7 +11,7 @@ namespace BooksSeller.WebApi.Controllers
 {
     public class BooksController : ApiController
     {
-        private readonly IBooksProvider _booksProvider;
+        private IBooksProvider _booksProvider;
 
         public BooksController(IBooksProvider booksProvider)
         {
@@ -20,7 +20,7 @@ namespace BooksSeller.WebApi.Controllers
 
 
         // GET: api/Books
-        public IEnumerable<Book> Get()
+        public List<Book> Get()
         {
             return _booksProvider.GetBooks();
         }
@@ -35,6 +35,7 @@ namespace BooksSeller.WebApi.Controllers
         public void Post([FromBody]Book value)
         {
             _booksProvider.SaveBook(value);
+       
         }
 
         // PUT: api/Books/5

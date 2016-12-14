@@ -8,10 +8,8 @@ namespace BooksSeller.WebApi.Models
     public class Book
     {
         [Key]
-        [Required]
-        [MaxLength(20)]
-        public string Id { get; set; }
-        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string Code { get; set; }
         public string Title { get; set; }
         public string ReleaseDate { get; set; }
