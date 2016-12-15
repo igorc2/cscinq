@@ -5,7 +5,7 @@ namespace BooksSeller.WebApi.Models
     public class BookDBContext : DbContext
     {
         public BookDBContext()
-            : base("name=BookConnectionString")
+            : base("name=BooksSellerContext")
         {           
         }
 
