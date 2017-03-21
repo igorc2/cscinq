@@ -21,16 +21,10 @@ namespace BooksSeller.WebApi.Providers
             _dbContext = dbContext;
         }
 
-        //public BookDBContext CreateContext()
-        //{
-        //    var von = new BooksProvider(_dbContext)
-        //    von.
-        //}
-
-        //public Book Create()
-        //{
-        //    return new Book();
-        //}
+        public BooksProvider()
+        {
+            
+        }
 
         public List<Book> GetBooks()
         {
@@ -50,33 +44,16 @@ namespace BooksSeller.WebApi.Providers
 
         public void SaveBook(int id, Book book)
         {
+            _dbContext.Set<Book>().Attach(book);
             _dbContext.Entry(book).State = EntityState.Modified;
+            _dbContext.SaveChanges();
         }
 
         public void DeleteBook(int id)
         {
             _dbContext.Books.Remove(_dbContext.Books.Find(id));
+            _dbContext.SaveChanges();
         }
-
-        private bool disposed = false;
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    _dbContext.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
 
     }
 }

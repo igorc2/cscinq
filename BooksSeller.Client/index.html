@@ -5,18 +5,19 @@
 	<meta charset="utf-8" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
 </head>
-<body ng-app="booksSeller" ng-controller="mainController as vm">
+<body ng-app="booksSeller" ng-controller="mainController as vmMain">
 
     <div class="container">
-        <div ng-if="vm.editionMode"
+        <div ng-if="vmMain.editionMode"
              ng-include="'app/books/booksEditView.html'"></div>
-        <div ng-if="!vm.editionMode"
+        <div ng-if="!vmMain.editionMode"
              ng-include="'app/books/booksListView.html'"></div>
     </div>
 
     <!-- Library Scripts -->
     <script src="scripts/angular.min.js"></script>
     <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>    
 
@@ -30,8 +31,10 @@
     <!-- Product Controllers -->
     <script src="app/mainController.js"></script>
     <script src="app/books/booksListController.js"></script>
-    <script src="app/books/booksListController.js"></script>
     <script src="app/books/booksEditController.js"></script>
+
+  
+
 
 </body>
 </html>

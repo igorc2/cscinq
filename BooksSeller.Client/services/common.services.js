@@ -8,6 +8,5 @@
         {
             //serverPath: "http://localhost:7918"
             serverPath: "http://localhost:46667"
-
         });
 }());

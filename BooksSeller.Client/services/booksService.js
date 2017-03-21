@@ -2,14 +2,13 @@
     "use strict";
 
     function booksService($resource, appSettings) {
-        return {
-            get: $resource(appSettings.serverPath + "/api/Books/:id", null),
-            getAll: $resource(appSettings.serverPath + "/api/Books", null),
-            save: $resource(appSettings.serverPath + "/api/Books", null,
-            {
-                'save': { method: 'POST' }
-            })
-        }
+        return $resource(appSettings.serverPath + "/api/Books/:id", { id: '@id' },
+        {
+            'update': { method: 'PUT', headers: { 'Content-Type': 'application/json' } },
+            'create': { method: 'POST'},
+            'getAll': { method: 'GET', isArray: true },
+            'get' : {method: 'GET'},
+        });
     }
 
     angular

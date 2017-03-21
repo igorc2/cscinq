@@ -9,6 +9,7 @@ using Microsoft.Practices.Unity;
 using BooksSeller.WebApi.Utils;
 using BooksSeller.WebApi.Providers;
 using System.Net.Http.Headers;
+using System.Web.Http.Cors;
 
 namespace BooksSeller.WebApi
 {
@@ -16,6 +17,10 @@ namespace BooksSeller.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

@@ -1,25 +1,30 @@
-﻿<div class="panel panel-primary" ng-controller="booksListController as vm">
+﻿<div class="panel panel-primary" ng-controller="booksListController as vmList">
     <div class="panel-heading" style="font-size:large">
         Books List
     </div>
     <div class="panel-body">
         <table class="table">
             <thead>
-                <tr ng-repeat="book in vm.books">
-                    <td>Code</td>
-                    <td>Title</td>
-                    <td>Available</td>
-                    <td>Price in {{currency}}</td>
+                <tr>
+                    <th class="col-md-2" >Code</th>
+                    <th class="col-md-4">Title</th>
+                    <th class="col-md-2">Available</th>
+                    <th class="col-md-2">Price in {{currency}}</th>
+                    <th class="col-md-1 text-center">Edit</th>
+                    <th class="col-md-1 text-center">Remove</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="book in vm.books">
-                    <td>{{book.Code}}</td>
-                    <td>{{book.Title}}</td>
-                    <td>{{book.Avaiable}}</td>
-                    <td>{{book.Price}}</td>
+                <tr ng-repeat="book in vmList.books">
+                    <td class="col-md-2">{{book.Code}}</td>
+                    <td class="col-md-4">{{book.Title}}</tdclass>
+                    <td class="col-md-2">{{book.ReleaseDate}}</td>
+                    <td class="col-md-2">{{book.Price | number : 2}}</td>    
+                    <td class="col-md-1 text-center"><a ng-click="vmList.edit(book.Id)"><i class="clickable glyphicon glyphicon-edit"></i></a></td>
+                    <td class="col-md-1 text-center"><a ng-click="vmList.remove(book.Id)"><i class="clickable glyphicon glyphicon-trash"></i></a></td>
                 </tr>
             </tbody>
         </table>
+        <button class="btn btn-primary pull-right" ng-click="vmList.addNewBook()"><i class="glyphicon glyphicon-plus"></i> Add new book</button>
     </div>
 </div>

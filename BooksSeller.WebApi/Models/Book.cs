@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BooksSeller.WebApi.Models
 {
+
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class Book
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Code { get; set; }
         public string Title { get; set; }

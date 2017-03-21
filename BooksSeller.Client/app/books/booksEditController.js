@@ -1,36 +1,60 @@
 ﻿(function () {
     "use strict";
 
-    function booksEditController() {
+    function booksEditController($scope, booksService) {
         var vm = this;
         vm.book = {};
         vm.originalBook = {};
         vm.title = '';
         vm.message = '';
 
-        // Query the book using a service
+        vm.submit = submit;
+        vm.backToList = backToList;
+        vm.cancel = cancel;
 
-        if (vm.book && vm.book.code) {
-            vm.title = "Edit: " + vm.book.title;
-        }
-        else {
-            vm.title = "New Book";
-        }
+        getBook($scope.vmMain.idBook);
 
-        vm.submit = function () {
-            vm.message = '';
-            if (vm.book.code) {
-                // Update Book
+        function getBook(idBook) {
+            if ($scope.vmMain.idBook) {
+                booksService.get({ id: $scope.vmMain.idBook }, function (book) {
+                    vm.originalBook = vm.book = book;
+                    vm.title = "Edit: " + vm.book.Title;
+                });
             } else {
-                // Save a New Book
+                vm.title = "New Book";
+                vm.originalBook = {
+                    Code: '',
+                    Title: '',
+                    ReleaseDate: '',
+                    Price: ''
+                }
+            }
+        }
+
+        
+
+        function submit(bookForm) {
+            vm.message = '';
+            if ($scope.vmMain.idBook) {
+                booksService.update({ id: $scope.vmMain.idBook }, vm.book, function () {
+                    $scope.vmMain.editionMode = false;
+                });
+            } else {
+                booksService.create(vm.book, function () {
+                    $scope.vmMain.editionMode = false;
+                });
             }
         };
 
-        vm.cancel = function (editForm) {
+       function cancel(editForm) {
             editForm.$setPristine();
-            vm.product = angular.copy(vm.originalBook);
+            vm.book = angular.copy(vm.originalBook);
             vm.message = '';
         };
+
+        function backToList() {
+            $scope.vmMain.editionMode = false;
+        }
 
     }
 
